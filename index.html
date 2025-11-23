@@ -1,312 +1,490 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vincenzo Cardea | System Online</title>
-    <meta name="description" content="Portfolio of Vincenzo Cardea. Software Developer.">
-    
+    <meta
+      name="description"
+      content="Portfolio of Vincenzo Cardea. Software Developer."
+    />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        cyan: {
-                            400: '#22d3ee',
-                            500: '#06b6d4',
-                            900: '#164e63',
-                        },
-                        dark: {
-                            900: '#050505', // Deep black
-                            card: '#0a0a0a',
-                            border: '#262626'
-                        }
-                    },
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+            },
+            colors: {
+              cyan: {
+                400: "#22d3ee",
+                500: "#06b6d4",
+                900: "#164e63",
+              },
+              dark: {
+                900: "#050505", // Deep black
+                card: "#0a0a0a",
+                border: "#262626",
+              },
+            },
+          },
+        },
+      };
     </script>
 
     <style>
-        body {
-            background-color: #050505;
-            background-image: 
-                linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: #e5e5e5;
-        }
+      body {
+        background-color: #050505;
+        background-image: linear-gradient(
+            rgba(34, 211, 238, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+        background-size: 30px 30px;
+        color: #e5e5e5;
+      }
 
-        /* Tech Borders & Hover Effects */
-        .tech-card {
-            position: relative;
-            transition: transform 0.2s ease, border-color 0.3s ease;
-            border: 1px solid #262626;
-        }
-        
-        .tech-card:hover {
-            border-color: #22d3ee;
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(34, 211, 238, 0.1);
-        }
-        
-        /* Corner Accents */
-        .corner-accent {
-            position: absolute;
-            bottom: 0; right: 0;
-            width: 0; height: 0;
-            border-style: solid;
-            border-width: 0 0 10px 10px;
-            border-color: transparent transparent #22d3ee transparent;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .tech-card:hover .corner-accent {
-            opacity: 1;
-        }
+      /* Tech Borders & Hover Effects */
+      .tech-card {
+        position: relative;
+        transition: transform 0.2s ease, border-color 0.3s ease;
+        border: 1px solid #262626;
+      }
 
-        /* Glitch Text Class */
-        .hacker-text { cursor: default; }
+      .tech-card:hover {
+        border-color: #22d3ee;
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(34, 211, 238, 0.1);
+      }
+
+      /* Corner Accents */
+      .corner-accent {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 10px 10px;
+        border-color: transparent transparent #22d3ee transparent;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .tech-card:hover .corner-accent {
+        opacity: 1;
+      }
+
+      /* Glitch Text Class */
+      .hacker-text {
+        cursor: default;
+      }
     </style>
-</head>
-<body class="antialiased min-h-screen flex flex-col selection:bg-cyan-900 selection:text-white">
-
-    <nav class="fixed w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 bg-cyan-400 animate-pulse"></span>
-                    <span class="font-mono font-bold text-lg tracking-tighter text-white">VC_ARDEA</span>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="https://github.com/vcardea" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors font-mono text-sm">
-                        <i class="fab fa-github"></i> ::GITHUB_PROFILE
-                    </a>
-                </div>
-            </div>
+  </head>
+  <body
+    class="antialiased min-h-screen flex flex-col selection:bg-cyan-900 selection:text-white"
+  >
+    <nav
+      class="fixed w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-white/5"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-cyan-400 animate-pulse"></span>
+            <span
+              class="font-mono font-bold text-lg tracking-tighter text-white"
+              >VC_ARDEA</span
+            >
+          </div>
+          <div class="flex space-x-6">
+            <a
+              href="https://github.com/vcardea"
+              target="_blank"
+              class="text-gray-400 hover:text-cyan-400 transition-colors font-mono text-sm"
+            >
+              <i class="fab fa-github"></i> ::GITHUB_PROFILE
+            </a>
+          </div>
         </div>
+      </div>
     </nav>
 
     <main class="relative z-10 pt-36 pb-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="max-w-4xl">
-                <div class="inline-flex items-center px-3 py-1 border-l-2 border-cyan-500 bg-cyan-900/10 text-cyan-400 text-xs font-mono mb-8">
-                    <span class="mr-2">ROOT@VCARDEA:~$ EXECUTE_PORTFOLIO.SH</span>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl">
+          <div
+            class="inline-flex items-center px-3 py-1 border-l-2 border-cyan-500 bg-cyan-900/10 text-cyan-400 text-xs font-mono mb-8"
+          >
+            <span class="mr-2">ROOT@VCARDEA:~$ EXECUTE_PORTFOLIO.SH</span>
+          </div>
 
-                <h1 class="text-5xl md:text-7xl font-display font-bold tracking-tight text-white mb-6 leading-tight">
-                    <span class="hacker-text block" data-value="VINCENZO CARDEA">VINCENZO CARDEA</span>
-                    <span class="text-gray-500 text-2xl md:text-4xl mt-2 block hacker-text font-mono" data-value=">> SOFTWARE ENGINEER & SYSTEM DESIGNER">>> SOFTWARE ENGINEER & SYSTEM DESIGNER</span>
-                </h1>
+          <h1
+            class="text-5xl md:text-7xl font-display font-bold tracking-tight text-white mb-6 leading-tight"
+          >
+            <span class="hacker-text block" data-value="VINCENZO CARDEA"
+              >VINCENZO CARDEA</span
+            >
+            <span
+              class="text-gray-500 text-2xl md:text-4xl mt-2 block hacker-text font-mono"
+              data-value=">> SOFTWARE ENGINEER & SYSTEM DESIGNER"
+              >>> SOFTWARE ENGINEER & SYSTEM DESIGNER</span
+            >
+          </h1>
 
-                <p class="text-xl text-gray-400 max-w-2xl leading-relaxed mb-10 pl-6 border-l border-white/10">
-                    CS Student at Unibo. I build systems that are efficient by logic and robust by design. 
-                    <br><span class="text-cyan-400 text-sm font-mono mt-2 block"> // Specializing in Low-level Logic & Modern Web.</span>
-                </p>
+          <p
+            class="text-xl text-gray-400 max-w-2xl leading-relaxed mb-10 pl-6 border-l border-white/10"
+          >
+            CS Student at Unibo. I build systems that are efficient by logic and
+            robust by design.
+            <br /><span class="text-cyan-400 text-sm font-mono mt-2 block">
+              // Specializing in Low-level Logic & Modern Web.</span
+            >
+          </p>
 
-                <div class="flex gap-4">
-                    <a href="#projects" class="px-8 py-3 bg-cyan-600 hover:bg-cyan-500 text-black font-bold font-mono text-sm transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                        INITIALIZE_VIEW()
-                    </a>
-                </div>
-            </div>
-
+          <div class="flex gap-4">
+            <a
+              href="#projects"
+              class="px-8 py-3 bg-cyan-600 hover:bg-cyan-500 text-black font-bold font-mono text-sm transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+            >
+              INITIALIZE_VIEW()
+            </a>
+          </div>
         </div>
+      </div>
     </main>
 
     <section id="projects" class="py-24 border-t border-white/5 bg-dark-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-end justify-between mb-16">
-                <div>
-                    <h2 class="text-3xl font-display font-bold text-white hacker-text mb-2" data-value="DEPLOYED_MODULES">DEPLOYED_MODULES</h2>
-                    <p class="font-mono text-xs text-cyan-400">/usr/bin/projects -list --all</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <article class="tech-card bg-dark-card p-6 flex flex-col h-full group relative">
-                    <a href="https://github.com/vcardea/G-Programming-Language" target="_blank" class="absolute inset-0 z-10"></a>
-                    
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">[ C++ ]</div>
-                        <i class="fas fa-code-branch text-gray-600 group-hover:text-cyan-400 transition-colors"></i>
-                    </div>
-                    
-                    <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">"G" Compiler</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
-                        Educational compiler built from scratch. Implements lexical analysis, custom grammar parsing, and C++ transpilation.
-                    </p>
-                    
-                    <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="font-mono text-xs text-gray-500">PARSING_LOGIC</span>
-                        <span class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">[ ACCESS_REPO ]</span>
-                    </div>
-                    <div class="corner-accent"></div>
-                </article>
-
-                <article class="tech-card bg-dark-card p-6 flex flex-col h-full group relative border-cyan-900/30">
-                     <a href="mailto:vincenzo.cardea.05@gmail.com" class="absolute inset-0 z-10"></a>
-
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-white/5 text-purple-400 font-mono text-xs">[ BUSINESS ]</div>
-                        <i class="fas fa-briefcase text-gray-600 group-hover:text-purple-400 transition-colors"></i>
-                    </div>
-                    
-                    <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">Freelance Web Dev</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
-                        Design and deployment of static websites for commercial clients. Managing requirements, hosting setup, and delivery timelines.
-                    </p>
-                    
-                    <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="font-mono text-xs text-gray-500">CLIENT_RELATIONS</span>
-                        <span class="font-mono text-xs text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">[ CONTACT_ME ]</span>
-                    </div>
-                    <div class="corner-accent"></div>
-                </article>
-
-                <article class="tech-card bg-dark-card p-6 flex flex-col h-full group relative">
-                    <a href="https://github.com/cestello/AulaMagnaGiorgi" target="_blank" class="absolute inset-0 z-10"></a>
-
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">[ PHP / SQL ]</div>
-                        <i class="fas fa-database text-gray-600 group-hover:text-cyan-400 transition-colors"></i>
-                    </div>
-                    
-                    <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Auditorium Sys</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
-                        Full-stack booking management system. Handles complex reservation overlaps, user roles, and secure authentication.
-                    </p>
-                    
-                    <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="font-mono text-xs text-gray-500">BACKEND_DEV</span>
-                        <span class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">[ ACCESS_REPO ]</span>
-                    </div>
-                    <div class="corner-accent"></div>
-                </article>
-
-                <article class="tech-card bg-dark-card p-6 flex flex-col h-full group relative">
-                    <a href="https://github.com/vcardea/Snake-Programmazione" target="_blank" class="absolute inset-0 z-10"></a>
-
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">[ C++ ]</div>
-                        <i class="fas fa-terminal text-gray-600 group-hover:text-cyan-400 transition-colors"></i>
-                    </div>
-                    
-                    <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Ncurses Snake</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
-                        Low-level implementation of Snake in a Unix terminal environment using Ncurses for direct memory control.
-                    </p>
-                    
-                    <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="font-mono text-xs text-gray-500">MEMORY_MGMT</span>
-                        <span class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">[ ACCESS_REPO ]</span>
-                    </div>
-                    <div class="corner-accent"></div>
-                </article>
-
-                 <article class="tech-card bg-dark-card p-6 flex flex-col h-full group relative">
-                    <a href="https://github.com/vcardea/BabboNatale-Segreto" target="_blank" class="absolute inset-0 z-10"></a>
-
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">[ WEB ]</div>
-                        <i class="fas fa-random text-gray-600 group-hover:text-cyan-400 transition-colors"></i>
-                    </div>
-                    
-                    <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Secret Santa Algo</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
-                        Algorithm-driven web app for anonymous gift exchanges. Ensures unique pairings and prevents self-selection loops.
-                    </p>
-                    
-                    <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="font-mono text-xs text-gray-500">ALGORITHMS</span>
-                        <span class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">[ ACCESS_REPO ]</span>
-                    </div>
-                    <div class="corner-accent"></div>
-                </article>
-
-                <article class="tech-card bg-dark-card p-6 flex flex-col h-full group relative">
-                    <a href="https://github.com/vcardea/Gioco-10eLotto-Java" target="_blank" class="absolute inset-0 z-10"></a>
-
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">[ JAVA ]</div>
-                        <i class="fas fa-chart-bar text-gray-600 group-hover:text-cyan-400 transition-colors"></i>
-                    </div>
-                    
-                    <h3 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Gambling Sim</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
-                        Desktop app simulating "10eLotto" statistics. Created to demonstrate the mathematical improbability of winning.
-                    </p>
-                    
-                    <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
-                        <span class="font-mono text-xs text-gray-500">SWING_GUI</span>
-                        <span class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">[ ACCESS_REPO ]</span>
-                    </div>
-                    <div class="corner-accent"></div>
-                </article>
-
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-16">
+          <div>
+            <h2
+              class="text-3xl font-display font-bold text-white hacker-text mb-2"
+              data-value="DEPLOYED_MODULES"
+            >
+              DEPLOYED_MODULES
+            </h2>
+            <p class="font-mono text-xs text-cyan-400">
+              /usr/bin/projects -list --all
+            </p>
+          </div>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article
+            class="tech-card bg-dark-card p-6 flex flex-col h-full group relative"
+          >
+            <a
+              href="https://github.com/vcardea/G-Programming-Language"
+              target="_blank"
+              class="absolute inset-0 z-10"
+            ></a>
+
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">
+                [ C++ ]
+              </div>
+              <i
+                class="fas fa-code-branch text-gray-600 group-hover:text-cyan-400 transition-colors"
+              ></i>
+            </div>
+
+            <h3
+              class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors"
+            >
+              "G" Compiler
+            </h3>
+            <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
+              Educational compiler built from scratch. Implements lexical
+              analysis, custom grammar parsing, and C++ transpilation.
+            </p>
+
+            <div
+              class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center"
+            >
+              <span class="font-mono text-xs text-gray-500">PARSING_LOGIC</span>
+              <span
+                class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                >[ ACCESS_REPO ]</span
+              >
+            </div>
+            <div class="corner-accent"></div>
+          </article>
+
+          <article
+            class="tech-card bg-dark-card p-6 flex flex-col h-full group relative border-cyan-900/30"
+          >
+            <a
+              href="mailto:vincenzo.cardea.05@gmail.com"
+              class="absolute inset-0 z-10"
+            ></a>
+
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-2 bg-white/5 text-purple-400 font-mono text-xs">
+                [ BUSINESS ]
+              </div>
+              <i
+                class="fas fa-briefcase text-gray-600 group-hover:text-purple-400 transition-colors"
+              ></i>
+            </div>
+
+            <h3
+              class="text-2xl font-display font-bold text-white mb-3 group-hover:text-purple-400 transition-colors"
+            >
+              Freelance Web Dev
+            </h3>
+            <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
+              Design and deployment of static websites for commercial clients.
+              Managing requirements, hosting setup, and delivery timelines.
+            </p>
+
+            <div
+              class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center"
+            >
+              <span class="font-mono text-xs text-gray-500"
+                >CLIENT_RELATIONS</span
+              >
+              <span
+                class="font-mono text-xs text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                >[ CONTACT_ME ]</span
+              >
+            </div>
+            <div class="corner-accent"></div>
+          </article>
+
+          <article
+            class="tech-card bg-dark-card p-6 flex flex-col h-full group relative"
+          >
+            <a
+              href="https://github.com/cestello/AulaMagnaGiorgi"
+              target="_blank"
+              class="absolute inset-0 z-10"
+            ></a>
+
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">
+                [ PHP / SQL ]
+              </div>
+              <i
+                class="fas fa-database text-gray-600 group-hover:text-cyan-400 transition-colors"
+              ></i>
+            </div>
+
+            <h3
+              class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors"
+            >
+              Auditorium Sys
+            </h3>
+            <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
+              Full-stack booking management system. Handles complex reservation
+              overlaps, user roles, and secure authentication.
+            </p>
+
+            <div
+              class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center"
+            >
+              <span class="font-mono text-xs text-gray-500">BACKEND_DEV</span>
+              <span
+                class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                >[ ACCESS_REPO ]</span
+              >
+            </div>
+            <div class="corner-accent"></div>
+          </article>
+
+          <article
+            class="tech-card bg-dark-card p-6 flex flex-col h-full group relative"
+          >
+            <a
+              href="https://github.com/vcardea/Snake-Programmazione"
+              target="_blank"
+              class="absolute inset-0 z-10"
+            ></a>
+
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">
+                [ C++ ]
+              </div>
+              <i
+                class="fas fa-terminal text-gray-600 group-hover:text-cyan-400 transition-colors"
+              ></i>
+            </div>
+
+            <h3
+              class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors"
+            >
+              Ncurses Snake
+            </h3>
+            <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
+              Low-level implementation of Snake in a Unix terminal environment
+              using Ncurses for direct memory control.
+            </p>
+
+            <div
+              class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center"
+            >
+              <span class="font-mono text-xs text-gray-500">MEMORY_MGMT</span>
+              <span
+                class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                >[ ACCESS_REPO ]</span
+              >
+            </div>
+            <div class="corner-accent"></div>
+          </article>
+
+          <article
+            class="tech-card bg-dark-card p-6 flex flex-col h-full group relative"
+          >
+            <a
+              href="https://github.com/vcardea/BabboNatale-Segreto"
+              target="_blank"
+              class="absolute inset-0 z-10"
+            ></a>
+
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">
+                [ WEB ]
+              </div>
+              <i
+                class="fas fa-random text-gray-600 group-hover:text-cyan-400 transition-colors"
+              ></i>
+            </div>
+
+            <h3
+              class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors"
+            >
+              Secret Santa Algo
+            </h3>
+            <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
+              Algorithm-driven web app for anonymous gift exchanges. Ensures
+              unique pairings and prevents self-selection loops.
+            </p>
+
+            <div
+              class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center"
+            >
+              <span class="font-mono text-xs text-gray-500">ALGORITHMS</span>
+              <span
+                class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                >[ ACCESS_REPO ]</span
+              >
+            </div>
+            <div class="corner-accent"></div>
+          </article>
+
+          <article
+            class="tech-card bg-dark-card p-6 flex flex-col h-full group relative"
+          >
+            <a
+              href="https://github.com/vcardea/Gioco-10eLotto-Java"
+              target="_blank"
+              class="absolute inset-0 z-10"
+            ></a>
+
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-2 bg-white/5 text-cyan-400 font-mono text-xs">
+                [ JAVA ]
+              </div>
+              <i
+                class="fas fa-chart-bar text-gray-600 group-hover:text-cyan-400 transition-colors"
+              ></i>
+            </div>
+
+            <h3
+              class="text-2xl font-display font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors"
+            >
+              Gambling Sim
+            </h3>
+            <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
+              Desktop app simulating "10eLotto" statistics. Created to
+              demonstrate the mathematical improbability of winning.
+            </p>
+
+            <div
+              class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center"
+            >
+              <span class="font-mono text-xs text-gray-500">SWING_GUI</span>
+              <span
+                class="font-mono text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                >[ ACCESS_REPO ]</span
+              >
+            </div>
+            <div class="corner-accent"></div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <footer class="border-t border-white/5 bg-black py-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p class="text-gray-600 text-xs font-mono">
-                © 2025 V_CARDEA. SYSTEM_READY.
-            </p>
-            <div class="flex gap-8">
-                <a href="mailto:vincenzo.cardea.05@gmail.com" class="text-gray-400 hover:text-cyan-400 font-mono text-sm transition-colors">[ SEND_PACKET::EMAIL ]</a>
-                <a href="https://github.com/vcardea" target="_blank" class="text-gray-400 hover:text-cyan-400 font-mono text-sm transition-colors">[ OPEN_SOCKET::GITHUB ]</a>
-            </div>
+      <div
+        class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <p class="text-gray-600 text-xs font-mono">
+          © 2025 V_CARDEA. SYSTEM_READY.
+        </p>
+        <div class="flex gap-8">
+          <a
+            href="mailto:vincenzo.cardea.05@gmail.com"
+            class="text-gray-400 hover:text-cyan-400 font-mono text-sm transition-colors"
+            >[ SEND_PACKET::EMAIL ]</a
+          >
+          <a
+            href="https://github.com/vcardea"
+            target="_blank"
+            class="text-gray-400 hover:text-cyan-400 font-mono text-sm transition-colors"
+            >[ OPEN_SOCKET::GITHUB ]</a
+          >
         </div>
+      </div>
     </footer>
 
     <script>
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
 
-        document.querySelectorAll(".hacker-text").forEach(element => {
-            const animateText = () => {
-                let iteration = 0;
-                const originalText = element.dataset.value; 
-                if(!originalText) return; // Safety check
+      document.querySelectorAll(".hacker-text").forEach((element) => {
+        const animateText = () => {
+          let iteration = 0;
+          const originalText = element.dataset.value;
+          if (!originalText) return; // Safety check
 
-                let interval = setInterval(() => {
-                    element.innerText = originalText
-                        .split("")
-                        .map((letter, index) => {
-                            if(index < iteration) {
-                                return originalText[index];
-                            }
-                            return letters[Math.floor(Math.random() * letters.length)];
-                        })
-                        .join("");
-                    
-                    if(iteration >= originalText.length){ 
-                        clearInterval(interval);
-                    }
-                    
-                    iteration += 1/3;
-                }, 30);
+          let interval = setInterval(() => {
+            element.innerText = originalText
+              .split("")
+              .map((letter, index) => {
+                if (index < iteration) {
+                  return originalText[index];
+                }
+                return letters[Math.floor(Math.random() * letters.length)];
+              })
+              .join("");
+
+            if (iteration >= originalText.length) {
+              clearInterval(interval);
             }
 
-            // Run on load
-            animateText();
+            iteration += 1 / 3;
+          }, 30);
+        };
 
-            // Run on hover
-            element.addEventListener('mouseover', animateText);
-        });
+        // Run on load
+        animateText();
+
+        // Run on hover
+        element.addEventListener("mouseover", animateText);
+      });
     </script>
-</body>
+  </body>
 </html>
